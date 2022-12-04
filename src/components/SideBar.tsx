@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import  NextLink  from 'next/link';
 import { BsThreeDotsVertical, BsChatSquareQuote,BsFillFileSpreadsheetFill } from 'react-icons/bs';
 import { RiShutDownLine, RiRestartLine, RiFileShredLine } from 'react-icons/ri';
 import { CgSmartHomeWashMachine } from "react-icons/cg"
@@ -78,7 +79,13 @@ export default function SimpleSidebar({ children }: { children: ReactNode }) {
       </Drawer>
       {/* mobilenav */}
       <MobileNav display={{ base: 'flex', md: 'none' }} onOpen={onOpen} />
-      <Box ml={{ base: 0, md: 60 }} p="4">
+      <Box
+        h='calc(100vh)'
+        w='calc(100vw)'
+        backgroundImage="url('https://media-cdn.sygictraveldata.com/media/1200x630/612664395a40232133447d33247d383736363734353236')"
+        backgroundRepeat={"no-repeat"}
+        backgroundSize={'cover'}
+        ml={{ base: 0, md: 60 }} p="4">
         {children}
       </Box>
     </Box>
@@ -164,42 +171,50 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
             <PopoverArrow />
             <PopoverBody>
               <Stack>
-                <Button
-                  w="194px"
-                  variant="ghost"
-                  rightIcon={<BsFillFileSpreadsheetFill />}
-                  justifyContent="space-between"
-                  fontWeight="normal"
-                  fontSize="sm">
-                  Расписание
-                </Button>
-                <Button
-                  w="194px"
-                  variant="ghost"
-                  rightIcon={<FaUniversity />}
-                  justifyContent="space-between"
-                  fontWeight="normal"
-                  fontSize="sm">
-                  Сайт ДГТУ
-                </Button>
-                <Button
-                  w="194px"
-                  variant="ghost"
-                  rightIcon={<FaUniversity />}
-                  justifyContent="space-between"
-                  fontWeight="normal"
-                  fontSize="sm">
-                  ВК ДГТУ
-                </Button>
-                <Button
-                  w="194px"
-                  variant="ghost"
-                  rightIcon={<FaUniversity />}
-                  justifyContent="space-between"
-                  fontWeight="normal"
-                  fontSize="sm">
-                  СКС (Профсоюз)
-                </Button>
+                <NextLink href="https://play.google.com/store/apps/details?id=mmis.mobile">
+                  <Button
+                    w="194px"
+                    variant="ghost"
+                    rightIcon={<BsFillFileSpreadsheetFill />}
+                    justifyContent="space-between"
+                    fontWeight="normal"
+                    fontSize="sm">
+                    Расписание
+                  </Button>
+                </NextLink>
+                <NextLink href="https://www.sssu.ru/">
+                  <Button
+                    w="194px"
+                    variant="ghost"
+                    rightIcon={<FaUniversity />}
+                    justifyContent="space-between"
+                    fontWeight="normal"
+                    fontSize="sm">
+                      Сайт ДГТУ
+                  </Button>
+                </NextLink>
+                <NextLink href="https://vk.com/donstu_shahty">
+                  <Button
+                    w="194px"
+                    variant="ghost"
+                    rightIcon={<FaUniversity />}
+                    justifyContent="space-between"
+                    fontWeight="normal"
+                    fontSize="sm">
+                    ВК ДГТУ
+                  </Button>
+                </NextLink>
+                <NextLink href="https://play.google.com/store/apps/details?id=com.gorbin.sks">
+                  <Button
+                    w="194px"
+                    variant="ghost"
+                    rightIcon={<FaUniversity />}
+                    justifyContent="space-between"
+                    fontWeight="normal"
+                    fontSize="sm">
+                    СКС (Профсоюз)
+                  </Button>
+                </NextLink>
               </Stack>
             </PopoverBody>
           </PopoverContent>
