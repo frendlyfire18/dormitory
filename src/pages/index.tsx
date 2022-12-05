@@ -5,7 +5,6 @@ const Index = ({users}) => (
   <div>
     <Nav/>
     <SimpleSidebar>
-      
     </SimpleSidebar>
   </div>
 )

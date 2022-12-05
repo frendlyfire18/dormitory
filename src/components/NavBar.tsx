@@ -126,8 +126,8 @@ export default function Nav() {
                     <Link color={'blue.400'}>Забыли пароль ?</Link>
                   </Stack>
                   <Button
-                    onClick={()=>{
-                      onAuthOrLogout(true)
+                    onClick={async ()=>{
+                      onAuthOrLogout(await postData("/api/loginuser",{name:username,password:password}))
                     }}
                     bg={'blue.400'}
                     color={'white'}
@@ -138,8 +138,7 @@ export default function Nav() {
                   </Button>
                   <Button
                     onClick={()=>{
-                      onAuthOrLogout(true)
-                      postData("/insertuser",{name:username,password:password})
+                      postData("/api/insertuser",{name:username,password:password})
                     }}
                     bg={'blue.400'}
                     color={'white'}
