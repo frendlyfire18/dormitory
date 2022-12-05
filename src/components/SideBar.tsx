@@ -81,8 +81,7 @@ export default function SimpleSidebar({ children }: { children: ReactNode }) {
       <MobileNav display={{ base: 'flex', md: 'none' }} onOpen={onOpen} />
       <Box
         h='calc(100vh)'
-        w='calc(100vw)'
-        backgroundImage="url('https://media-cdn.sygictraveldata.com/media/1200x630/612664395a40232133447d33247d383736363734353236')"
+        backgroundImage="url('https://sun9-20.userapi.com/impg/3OG9y7Cx7IizMgRlOaUOQ0fX2ohMXSkEZMTH5A/CZzJnS4WJHg.jpg?size=1024x522&quality=95&sign=855e7a991055c4ca144490e03d692071&type=album')"
         backgroundRepeat={"no-repeat"}
         backgroundSize={'cover'}
         ml={{ base: 0, md: 60 }} p="4">

@@ -28,6 +28,7 @@ import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import Logo from "../components/Logo"
 import SideButton from "../components/SideButton"
 import {useState} from "react"
+import { postData } from '../lib/postData';
 
 const NavLink = ({ children }: { children: ReactNode }) => (
   <Link
@@ -48,6 +49,7 @@ export default function Nav() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isAuth,onAuthOrLogout] = useState(false) 
   const [username,onEnterName] = useState("") 
+  const [password,onEnterPassword] = useState("") 
   return (
     <>
       <Box bg={useColorModeValue('white', 'gray.900')}  px={4}
@@ -99,7 +101,7 @@ export default function Nav() {
                   variant={'link'}
                   cursor={'pointer'}
                   minW={0}>
-                  Вход
+                  Вход/Регистрация
                 </MenuButton>
                 <MenuList>
                     <Stack spacing={4} p={"15px"}>
@@ -111,7 +113,9 @@ export default function Nav() {
                 </FormControl>
                 <FormControl id="password">
                   <FormLabel>Пароль</FormLabel>
-                  <Input type="password" />
+                  <Input onChange={(e)=>{
+                    onEnterPassword(e.target.value)
+                  }} type="password" />
                 </FormControl>
                 <Stack spacing={10}>
                   <Stack
@@ -124,7 +128,6 @@ export default function Nav() {
                   <Button
                     onClick={()=>{
                       onAuthOrLogout(true)
-
                     }}
                     bg={'blue.400'}
                     color={'white'}
@@ -132,6 +135,18 @@ export default function Nav() {
                       bg: 'blue.500',
                     }}>
                     Войти
+                  </Button>
+                  <Button
+                    onClick={()=>{
+                      onAuthOrLogout(true)
+                      postData("/insertuser",{name:username,password:password})
+                    }}
+                    bg={'blue.400'}
+                    color={'white'}
+                    _hover={{
+                      bg: 'blue.500',
+                    }}>
+                    Регистрация
                   </Button>
                 </Stack>
                 </Stack>
